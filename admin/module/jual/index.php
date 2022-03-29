@@ -188,9 +188,9 @@
 												<td></td>
 												<td>
 													<?php $hasil_penjualan=$lihat->penjualan(); 
-													// var_dump($hasil_penjualan[$id]['pelanggans']);?>
+													// var_dump($hasil_penjualan[0]['pelanggans']);?>
 													<a href="print.php?nm_member=<?php echo $_SESSION['admin']['nm_member'];?>
-													&bayar=<?php echo $bayar;?>&kembali=<?php echo $hitung;?>&nama_pelanggan=<?php echo $hasil_penjualan[1]['pelanggans'] ?>" target="_blank">
+													&bayar=<?php echo $bayar;?>&kembali=<?php echo $hitung;?>&nama_pelanggan=<?php echo $hasil_penjualan[0]['pelanggans'] ?>" target="_blank">
 													<button class="btn btn-default">
 														<i class="fa fa-print"></i> Print Untuk Bukti Pembayaran
 													</button></a>

@@ -190,13 +190,14 @@
 								<thead>
 									<tr style="background:#DFF0D8;color:#333;">
 										<th> No</th>
-										<th> ID Barang</th>
+										<!-- <th> ID Barang</th>
 										<th> Nama Barang</th>
-										<th style="width:10%;"> Jumlah</th>
+										<th style="width:10%;"> Jumlah</th> -->
 										<th style="width:10%;"> Pelanggan</th>
 										<th style="width:10%;"> Total</th>
 										<th> Kasir</th>
 										<th> Tanggal Input</th>
+										<th>Aksi</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -225,7 +226,7 @@
 										}else{
 											$hasil = $lihat -> jual();
 											// var_dump($hasil);
-											$hasis = $lihat->jual();
+											$hasis = $lihat->penjualan();
 										}
 									?>
 									<?php 
@@ -239,14 +240,17 @@
 									?>
 									<tr>
 										<td><?php echo $no;?></td>
-										<td><?php echo $isi['id_barang'];?></td>
+										<!-- <td><?php echo $isi['id_barang'];?></td>
 										<td><?php echo $isi['nama_barang'];?></td>
-										<td><?php echo $isi['jumlah'];?> </td>
+										<td><?php echo $isi['jumlah'];?> </td> -->
 										<!-- <td>Rp.<?php echo number_format($isi['harga_beli']* $isi['jumlah']);?>,-</td> -->
-										<td><?php echo $hasis[1]['pelanggans'];?></td>
+										<td><?php echo $hasis[0]['pelanggans'];?></td>
 										<td>Rp.<?php echo number_format($isi['total']);?>,-</td>
 										<td><?php echo $isi['nm_member'];?></td>
 										<td><?php echo $isi['tanggal_input'];?></td>
+										<!-- <td><a href="index.php?page=laporan/details&laporan=<?php echo $isi['id_nota'];?>"><button class="btn btn-primary btn-xs">Details</button></a></td> -->
+										<td><a href="index.php?page=laporan/details&laporan=<?php echo $isi['id_nota'];?>"><button class="btn btn-primary btn-xs">Details</button></a></td>
+											
 									</tr>
 									<?php $no++; }?>
 								</tbody>

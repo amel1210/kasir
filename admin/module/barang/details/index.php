@@ -2,7 +2,7 @@
       
       <!--main content start-->
 <?php 
-	$id = $_GET['barang'];
+	$id = $_GET['id_nota'];
 	$hasil = $lihat -> barang_edit($id);
 ?>
       <section id="main-content">

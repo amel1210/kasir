@@ -109,6 +109,17 @@
 				return $hasil;
 			}
 
+
+			
+
+			function laporan_edit(){
+				$sql = "SELECT nota.* , barang.id_barang, barang.nama_barang, barang.harga_beli, member.id_member, member.nm_member, customer.nama_pelanggan as pelanggans from nota left join barang on barang.id_barang=nota.id_barang left join member on member.id_member=nota.id_member LEFT JOIN customer ON customer.id_pelanggan=nota.pelanggan ORDER BY nota.pelanggan AND nota.tanggal_input, nota.id_nota DESC;";
+				$row = $this-> db -> prepare($sql);
+				$row -> execute(array($id));
+				$hasil = $row -> fetch();
+				return $hasil;
+			}
+
 			function barang_cari($cari){
 				$sql = "select barang.*, kategori.id_kategori, kategori.nama_kategori
 						from barang inner join kategori on barang.id_kategori = kategori.id_kategori
@@ -188,9 +199,10 @@
 			}
 			
 			function jual(){
-				$sql ="
-SELECT nota.* , barang.id_barang, barang.nama_barang, barang.harga_beli, member.id_member, member.nm_member, customer.nama_pelanggan as pelanggans from nota left join barang on barang.id_barang=nota.id_barang left join member on member.id_member=nota.id_member LEFT JOIN customer ON customer.id_pelanggan=nota.pelanggan ORDER BY nota.pelanggan AND nota.tanggal_input, nota.id_nota DESC;";
-				$row = $this-> db -> prepare($sql);
+// 				$sql ="
+// SELECT nota.* , barang.id_barang, barang.nama_barang, barang.harga_beli, member.id_member, member.nm_member, customer.nama_pelanggan as pelanggans from nota left join barang on barang.id_barang=nota.id_barang left join member on member.id_member=nota.id_member LEFT JOIN customer ON customer.id_pelanggan=nota.pelanggan ORDER BY nota.pelanggan AND nota.tanggal_input, nota.id_nota DESC;";
+$sql="SELECT DISTINCT nota.tanggal_input , barang.id_barang, barang.nama_barang, barang.harga_beli, member.id_member, member.nm_member, customer.nama_pelanggan as pelanggans from nota LEFT join barang on barang.id_barang=nota.id_barang LEFT join member on member.id_member=nota.id_member LEFT JOIN customer ON customer.id_pelanggan=nota.pelanggan GROUP BY nota.id_nota DESC";		
+$row = $this-> db -> prepare($sql);
 				$row -> execute(array(date('m-Y')));
 				$hasil = $row -> fetchAll();
 				return $hasil;

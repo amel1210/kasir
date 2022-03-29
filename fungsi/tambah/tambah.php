@@ -103,4 +103,5 @@ var_dump($persen);
 			echo '<script>alert("Stok Barang Anda Telah Habis !");
 					window.location="../../index.php?page=jual#keranjang"</script>';
 		}
-	}
+	}}
+
